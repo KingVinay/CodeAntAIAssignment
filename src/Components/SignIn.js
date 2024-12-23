@@ -8,9 +8,10 @@ import GithubLogo from "../Assets/github.png";
 import BitbucketLogo from "../Assets/bitbucket.png";
 import GitLabLogo from "../Assets/gitlab.png";
 import AzureDevopsLogo from "../Assets/azure.png";
+import SSOLogo from "../Assets/sso.png";
 
 const SignIn = () => {
-  const [isSaas, setIsSaas] = useState(false);
+  const [isSaas, setIsSaas] = useState(true);
   const navigate = useNavigate();
 
   const handleSaaSClick = () => {
@@ -60,78 +61,90 @@ const SignIn = () => {
           <div className="flex space-x-4 mb-6">
             <button
               onClick={handleSaaSClick}
-              className="bg-blue-500 text-white px-6 py-3 rounded-md shadow-md hover:bg-blue-600 transition"
+              className={`${
+                isSaas
+                  ? "bg-custom-blue text-white"
+                  : "bg-white text-black hover:bg-gray-400"
+              } px-12 lg:px-24 py-3 rounded-md shadow-md  hover:text-white transition`}
             >
               SAAS
             </button>
             <button
               onClick={handleSelfHostedClick}
-              className="bg-gray-500 text-white px-6 py-3 rounded-md shadow-md hover:bg-gray-600 transition"
+              className={`${
+                isSaas
+                  ? "bg-white text-black hover:bg-gray-400"
+                  : "bg-custom-blue text-white"
+              } px-8 lg:px-20 py-3 rounded-md shadow-md hover:text-white transition`}
             >
               Self Hosted
             </button>
           </div>
 
-          {isSaas ? (
-            <div className="space-y-4">
-              <button
-                onClick={() => handleLogin("github")}
-                className="w-full flex items-center justify-center bg-gray-800 text-white py-3 rounded-md shadow-md space-x-2"
-              >
-                <img src="/github-logo.svg" alt="GitHub" className="w-6 h-6" />
-                <span>Sign in with Github</span>
-              </button>
-              <button
-                onClick={() => handleLogin("bitbucket")}
-                className="w-full flex items-center justify-center bg-blue-500 text-white py-3 rounded-md shadow-md space-x-2"
-              >
-                <img
-                  src="/bitbucket-logo.svg"
-                  alt="Bitbucket"
-                  className="w-6 h-6"
-                />
-                <span>Sign in with Bitbucket</span>
-              </button>
-              <button
-                onClick={() => handleLogin("azure")}
-                className="w-full flex items-center justify-center bg-blue-700 text-white py-3 rounded-md shadow-md space-x-2"
-              >
-                <img
-                  src="/azure-logo.svg"
-                  alt="Azure DevOps"
-                  className="w-6 h-6"
-                />
-                <span>Sign in with Azure DevOps</span>
-              </button>
-              <button
-                onClick={() => handleLogin("gitlab")}
-                className="w-full flex items-center justify-center bg-red-600 text-white py-3 rounded-md shadow-md space-x-2"
-              >
-                <img src="/gitlab-logo.svg" alt="GitLab" className="w-6 h-6" />
-                <span>Sign in with GitLab</span>
-              </button>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              <button
-                onClick={() => handleLogin("gitlab-self-hosted")}
-                className="w-full flex items-center justify-center bg-green-500 text-white py-3 rounded-md shadow-md space-x-2"
-              >
-                <span>Self Hosted GitLab</span>
-              </button>
-              <button
-                onClick={() => handleLogin("sso")}
-                className="w-full flex items-center justify-center bg-yellow-500 text-white py-3 rounded-md shadow-md space-x-2"
-              >
-                <span>Sign in with SSO</span>
-              </button>
-            </div>
-          )}
+          <div className="h-60 space-y-4">
+            {isSaas ? (
+              <>
+                <button
+                  onClick={() => handleLogin("github")}
+                  className="w-full flex items-center justify-center text-black py-3 rounded-md lg:px-20 border-[1px] border-custom-gray space-x-2"
+                >
+                  <img src={GithubLogo} alt="GitHub" className="w-6 h-6" />
+                  <span>Sign in with Github</span>
+                </button>
+                <button
+                  onClick={() => handleLogin("bitbucket")}
+                  className="w-full flex items-center justify-center text-black py-3 rounded-md lg:px-20 border-[1px] border-custom-gray space-x-2"
+                >
+                  <img
+                    src={BitbucketLogo}
+                    alt="Bitbucket"
+                    className="w-6 h-6"
+                  />
+                  <span>Sign in with Bitbucket</span>
+                </button>
+                <button
+                  onClick={() => handleLogin("azure")}
+                  className="w-full flex items-center justify-center text-black py-3 rounded-md lg:px-20 border-[1px] border-custom-gray space-x-2"
+                >
+                  <img
+                    src={AzureDevopsLogo}
+                    alt="Azure DevOps"
+                    className="w-6 h-6"
+                  />
+                  <span>Sign in with Azure DevOps</span>
+                </button>
+                <button
+                  onClick={() => handleLogin("gitlab")}
+                  className="w-full flex items-center justify-center text-black py-3 rounded-md lg:px-20 border-[1px] border-custom-gray space-x-2"
+                >
+                  <img src={GitLabLogo} alt="GitLab" className="w-6 h-6" />
+                  <span>Sign in with GitLab</span>
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => handleLogin("gitlab-self-hosted")}
+                  className="w-full flex items-center justify-center text-black lg:px-20 border-[1px] border-custom-gray py-3 rounded-md space-x-2"
+                >
+                  <img src={GitLabLogo} alt="GitLab" className="w-6 h-6" />
+                  <span>Self Hosted GitLab</span>
+                </button>
+                <button
+                  onClick={() => handleLogin("sso")}
+                  className="w-full flex items-center justify-center text-black lg:px-20 border-[1px] border-custom-gray py-3 rounded-md border-[1px] border-custom-gray space-x-2"
+                >
+                  <img src={SSOLogo} alt="sso" className="w-6 h-6" />
+                  <span>Sign in with SSO</span>
+                </button>
+              </>
+            )}
+          </div>
         </div>
 
         <p className="text-sm mt-6 text-center text-gray-600">
           By signing up you agree to the{" "}
-          <a href="/privacy-policy" className="text-blue-500">
+          <a href="/privacy-policy" className="text-black ">
             Privacy Policy
           </a>
           .
