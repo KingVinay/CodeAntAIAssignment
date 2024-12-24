@@ -55,7 +55,7 @@ const SignIn = () => {
               <img src={SmallLogo} alt="Logo" className="h-12 mb-2" />
               <h3 className="text-2xl ml-4 mt-4 font-extralight">CodeAnt AI</h3>
             </div>
-            <h2 className="text-3xl font-semibold">Welcome to CodeAnt AI</h2>
+            <h2 className="text-3xl font-medium">Welcome to CodeAnt AI</h2>
           </div>
 
           <div className="flex space-x-4 mb-6">
@@ -65,7 +65,7 @@ const SignIn = () => {
                 isSaas
                   ? "bg-custom-blue text-white"
                   : "bg-white text-black hover:bg-gray-400"
-              } px-12 lg:px-24 py-3 rounded-md shadow-md  hover:text-white transition`}
+              } px-12 lg:px-28 py-3 rounded-md shadow-md  hover:text-white transition`}
             >
               SAAS
             </button>
@@ -75,7 +75,7 @@ const SignIn = () => {
                 isSaas
                   ? "bg-white text-black hover:bg-gray-400"
                   : "bg-custom-blue text-white"
-              } px-8 lg:px-20 py-3 rounded-md shadow-md hover:text-white transition`}
+              } px-8 lg:px-24 py-3 rounded-md shadow-md hover:text-white transition`}
             >
               Self Hosted
             </button>
@@ -142,7 +142,7 @@ const SignIn = () => {
           </div>
         </div>
 
-        <p className="text-sm mt-6 text-center text-gray-600">
+        <p className="text-sm mt-12 text-center text-gray-600">
           By signing up you agree to the{" "}
           <a href="/privacy-policy" className="text-black ">
             Privacy Policy
