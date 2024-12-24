@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SmallLogo from "../Assets/SmallLogo.png";
 
 const Home = () => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -68,17 +69,13 @@ const Home = () => {
     <div className="flex flex-col md:flex-row min-h-screen">
       {/* Left Component */}
       <div
-        className={`w-full md:w-1/5 bg-gray-100 p-4 md:p-6 flex flex-col items-center md:block sticky top-0 z-10 ${
+        className={`w-full md:w-1/5 bg-gray-100 p-4 md:p-6 flex flex-col items-center md:block overflow-y-hidden top-0 z-10 ${
           isHamburgerOpen ? "block" : "hidden"
         }`}
       >
-        <div className="text-center mb-6">
-          <img
-            src="https://via.placeholder.com/100"
-            alt="Logo"
-            className="mb-4"
-          />
-          <h2 className="text-xl font-semibold">CodeAnt AI</h2>
+        <div className="flex text-center mb-6">
+          <img src={SmallLogo} alt="Logo" className="mb-4" />
+          <h2 className="text-2xl mt-2 ml-2 font-light">CodeAnt AI</h2>
         </div>
 
         {/* Name Box */}
@@ -134,7 +131,7 @@ const Home = () => {
         </div>
 
         {/* Bottom Buttons */}
-        <div className="mt-auto w-full flex flex-col items-start space-y-2">
+        <div className="mt-20 w-full flex flex-col items-start space-y-2">
           <button
             onClick={handleLogout}
             className="flex items-center space-x-2 w-full py-2 px-4 text-left bg-white border rounded-md shadow-md hover:bg-gray-100"
@@ -155,22 +152,24 @@ const Home = () => {
           isHamburgerOpen ? "w-full" : "md:w-4/5"
         }`}
       >
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-2xl font-bold">Repositories</h3>
-        </div>
+        <div className="flex flex-col md:justify-between md:flex-row">
+          <div>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-2xl font-bold">Repositories</h3>
+            </div>
 
-        <span className="text-sm text-gray-500 mb-4">
-          50 total Repositories
-        </span>
+            <span className="text-sm text-gray-500 mb-4">
+              50 total Repositories
+            </span>
+          </div>
 
-        {/* For Mobile: Refresh & Add Repository above search */}
-        <div className="sm:flex sm:justify-between sm:items-center sm:mb-6 mb-4">
+          {/* For Mobile: Refresh & Add Repository above search */}
           <div className="flex space-x-2">
-            <button className="flex items-center py-2 px-4 bg-blue-500 text-white rounded-md">
+            <button className="flex items-center md:h-10 md:w-40 py-2 px-4 bg-white text-black border-[1px] border-custom-gray rounded-md">
               <img src="refresh-icon.svg" alt="Refresh" className="w-5 h-5" />
               <span>Refresh</span>
             </button>
-            <button className="flex items-center py-2 px-4 bg-blue-500 text-white rounded-md">
+            <button className="flex items-center md:h-10 md:w-48 py-2 px-4 bg-blue-500 text-white rounded-md">
               <img
                 src="add-repository-icon.svg"
                 alt="Add Repository"
