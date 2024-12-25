@@ -22,51 +22,37 @@ const Home = () => {
     {
       name: "Repo1",
       type: "Public",
-      skill: "React, JavaScript",
+      skill: "React",
       storage: "3424KB",
-      updatedAt: "2 days ago",
+      updatedAt: "Updated 2 days ago",
     },
     {
       name: "Repo2",
       type: "Private",
-      skill: "Python",
+      skill: "Node.js",
       storage: "7489KB",
-      updatedAt: "5 days ago",
+      updatedAt: " Updated 5 days ago",
     },
     {
       name: "Repo3",
       type: "Public",
-      skill: "React",
+      skill: "MongoDB",
       storage: "5120KB",
-      updatedAt: "3 days ago",
+      updatedAt: "Updated 3 days ago",
     },
     {
       name: "Repo4",
       type: "Private",
       skill: "JavaScript",
       storage: "2048KB",
-      updatedAt: "1 day ago",
+      updatedAt: "Updated 1 day ago",
     },
     {
       name: "Repo5",
       type: "Public",
-      skill: "Python, React",
+      skill: "C++",
       storage: "1024KB",
-      updatedAt: "10 hours ago",
-    },
-    {
-      name: "Repo6",
-      type: "Public",
-      skill: "Node.js",
-      storage: "2048KB",
-      updatedAt: "8 hours ago",
-    },
-    {
-      name: "Repo7",
-      type: "Private",
-      skill: "JavaScript, React",
-      storage: "4096KB",
-      updatedAt: "4 days ago",
+      updatedAt: "Updated 10 hours ago",
     },
   ];
 
@@ -151,7 +137,7 @@ const Home = () => {
             </div>
 
             <span className="text-sm text-gray-500 mb-2">
-              50 total Repositories
+              5 total Repositories
             </span>
           </div>
 
@@ -179,26 +165,25 @@ const Home = () => {
         </div>
 
         {/* Repository List - Display all repositories in a column */}
-        <div className="flex flex-col space-y-4">
-          {repositories.slice(0, 7).map((repo) => (
+        <div className="flex flex-col">
+          {repositories.slice(0, 5).map((repo) => (
             <div
               key={repo.name}
-              className="border p-4 rounded-md hover:shadow-lg flex items-start space-x-4"
+              className="h-24 border-[1px] border-custom-gray p-4 rounded-md hover:bg-gray-100 flex items-start space-x-4"
             >
-              <img src="repo-icon.svg" alt={repo.name} className="w-12 h-12" />
               <div className="flex-1">
-                <div className="flex justify-between">
-                  <h4 className="font-semibold">{repo.name}</h4>
-                  <span className="text-sm text-blue-500">{repo.type}</span>
+                <div className="flex text-center">
+                  <h4 className="font-semibold mr-4">{repo.name}</h4>
+                  <span className="w-16 text-sm font-thin border-[1px] border-custom-light-blue bg-blue-100 rounded-md text-custom-blue">
+                    {repo.type}
+                  </span>
                 </div>
-                <div className="flex items-center space-x-2 mt-2">
+                <div className="flex items-center space-x-2 mt-2 text-repo">
                   <span>{repo.skill}</span>
-                  <span className="text-blue-500">•</span>
-                  <img src="book-icon.svg" alt="Storage" className="w-4 h-4" />
-                  <span>{repo.storage}</span>
-                </div>
-                <div className="mt-2 text-sm text-gray-500">
-                  {repo.updatedAt}
+                  <span className="text-2xl pr-8 text-custom-blue">•</span>
+                  <img src={data} alt="Storage" className="w-3 h-3" />
+                  <span className="pr-8">{repo.storage}</span>
+                  <span>{repo.updatedAt}</span>
                 </div>
               </div>
             </div>
